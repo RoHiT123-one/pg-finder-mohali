@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /list-your-pg
+Allow: /
+
+Sitemap: https://pg-finder-mohali.vercel.app/sitemap.xml
