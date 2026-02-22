@@ -30,11 +30,11 @@ export default function Home() {
                 Browse All PGs
               </Button>
             </Link>
-            <Link to="/list-your-pg">
+            {/* <Link to="/list-your-pg">
               <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 List Your PG
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

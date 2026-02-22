@@ -46,41 +46,48 @@ export default function ListYourPG() {
     },
   });
 
-  const handleImageUpload = async (files: File[]) => {
-    setUploading(true);
-    try {
-      const urls: string[] = [];
-      
-      for (const file of files) {
-        const fileName = `${Date.now()}_${file.name}`;
-        const { error: uploadError } = await supabase.storage
-          .from('app-9rps3w1146pt_pg_images')
-          .upload(fileName, file);
-        
-        if (uploadError) throw uploadError;
-        
-        const { data } = supabase.storage
-          .from('app-9rps3w1146pt_pg_images')
-          .getPublicUrl(fileName);
-        
-        urls.push(data.publicUrl);
+ const handleImageUpload = async (files: File[]) => {
+  setUploading(true);
+
+  try {
+    const uploaded: string[] = [];
+
+    for (const file of files) {
+
+      // unique name
+      const ext = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random()}.${ext}`;
+
+      // IMPORTANT → folder 'pg'
+      const filePath = `pg/${fileName}`;
+
+      // upload
+      const { error } = await supabase.storage
+        .from('pg-images')
+        .upload(filePath, file);
+
+      if (error) {
+        console.error("UPLOAD ERROR:", error);
+        throw error;
       }
-      
-      setImageUrls((prev) => [...prev, ...urls]);
-      toast({
-        title: 'Success',
-        description: `${urls.length} image(s) uploaded successfully`,
-      });
-    } catch (error) {
-      console.error('Upload error:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to upload images',
-      });
-    } finally {
-      setUploading(false);
+
+      // get url
+      const { data } = supabase.storage
+        .from('pg-images')
+        .getPublicUrl(filePath);
+
+      uploaded.push(data.publicUrl);
     }
-  };
+
+    setImageUrls(uploaded);
+
+  } catch (err) {
+    console.error(err);
+    alert("Image upload failed");
+  }
+
+  setUploading(false);
+};
 
   const onSubmit = async (data: PGFormData) => {
     if (imageUrls.length === 0) {

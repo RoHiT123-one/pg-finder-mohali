@@ -4,7 +4,7 @@ import type { PG, Review, Favorite, Enquiry, PGFilters, PGFormData } from '@/typ
 // PG Operations
 export async function getPGs(filters?: PGFilters, limit = 20, offset = 0) {
   let query = supabase
-    .from('pgs')
+    .from('pg_listings')
     .select('*')
     .order('created_at', { ascending: false });
 
@@ -48,7 +48,7 @@ export async function getPGs(filters?: PGFilters, limit = 20, offset = 0) {
 
 export async function getFeaturedPGs(limit = 6) {
   const { data, error } = await supabase
-    .from('pgs')
+    .from('pg_listings')
     .select('*')
     .eq('featured', true)
     .order('created_at', { ascending: false })
@@ -60,7 +60,7 @@ export async function getFeaturedPGs(limit = 6) {
 
 export async function getRecentPGs(limit = 6) {
   const { data, error } = await supabase
-    .from('pgs')
+    .from('pg_listings')
     .select('*')
     .order('created_at', { ascending: false })
     .limit(limit);
@@ -69,30 +69,48 @@ export async function getRecentPGs(limit = 6) {
   return Array.isArray(data) ? data : [];
 }
 
+// export async function getPGById(id: string) {
+//   const { data, error } = await supabase
+//     .from('pg_listings')
+//     .select('*')
+//     .eq('pg_id', id)
+//     .maybeSingle();
+
+//   if (error) throw error;
+//   return data;
+// }
 export async function getPGById(id: string) {
+  console.log("FETCHING PG WITH ID:", id);
+
   const { data, error } = await supabase
-    .from('pgs')
+    .from('pg_listings')
     .select('*')
     .eq('id', id)
-    .maybeSingle();
+    .single();
 
-  if (error) throw error;
+  console.log("SUPABASE RESPONSE:", data);
+  console.log("SUPABASE ERROR:", error);
+
+  if (error) {
+    throw error;
+  }
+
   return data;
 }
 
 export async function createPG(pgData: PGFormData, images: string[]) {
   const { data, error } = await supabase
-    .from('pgs')
-    .insert({
+    .from('pg_listings')
+    .insert([{
       ...pgData,
-      images,
+      image_urls: images,
       rent_single: pgData.rent_single || null,
       rent_double: pgData.rent_double || null,
       rent_triple: pgData.rent_triple || null,
       security_deposit: pgData.security_deposit || null,
       map_location: pgData.map_location || null,
       description: pgData.description || null,
-    })
+    }])
     .select()
     .maybeSingle();
 
@@ -101,20 +119,22 @@ export async function createPG(pgData: PGFormData, images: string[]) {
 }
 
 export async function incrementPGViews(id: string) {
-  const { error } = await supabase.rpc('increment_pg_views', { pg_id: id });
-  if (error) console.error('Error incrementing views:', error);
+  // const { error } = await supabase.rpc('increment_pg_views', { pg_id: id });
+  // if (error) console.error('Error incrementing views:', error);
+  return;
 }
 
 // Review Operations
 export async function getReviewsByPGId(pgId: string) {
-  const { data, error } = await supabase
-    .from('reviews')
-    .select('*')
-    .eq('pg_id', pgId)
-    .order('created_at', { ascending: false });
+  // const { data, error } = await supabase
+  //   .from('reviews')
+  //   .select('*')
+  //   .eq('pg_id', pgId)
+  //   .order('created_at', { ascending: false });
 
-  if (error) throw error;
-  return Array.isArray(data) ? data : [];
+  // if (error) throw error;
+  // return Array.isArray(data) ? data : [];
+  return [];
 }
 
 export async function createReview(review: Omit<Review, 'id' | 'created_at'>) {
@@ -129,17 +149,18 @@ export async function createReview(review: Omit<Review, 'id' | 'created_at'>) {
 }
 
 export async function getAverageRating(pgId: string) {
-  const { data, error } = await supabase
-    .from('reviews')
-    .select('rating')
-    .eq('pg_id', pgId);
+  // const { data, error } = await supabase
+  //   .from('reviews')
+  //   .select('rating')
+  //   .eq('pg_id', pgId);
 
-  if (error) throw error;
+  // if (error) throw error;
   
-  if (!data || data.length === 0) return 0;
+  // if (!data || data.length === 0) return 0;
   
-  const sum = data.reduce((acc, review) => acc + review.rating, 0);
-  return sum / data.length;
+  // const sum = data.reduce((acc, review) => acc + review.rating, 0);
+  // return sum / data.length;
+  return 0;
 }
 
 // Favorite Operations

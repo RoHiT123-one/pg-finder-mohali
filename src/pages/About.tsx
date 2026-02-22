@@ -29,7 +29,7 @@ export default function About() {
           <Card>
             <CardContent className="p-6">
               <Building2 className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">500+ Listings</h3>
+              <h3 className="text-xl font-semibold mb-2">10+ Listings</h3>
               <p className="text-muted-foreground">
                 Extensive database of verified PG accommodations across Mohali
               </p>
@@ -39,7 +39,7 @@ export default function About() {
           <Card>
             <CardContent className="p-6">
               <Users className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">10,000+ Students</h3>
+              <h3 className="text-xl font-semibold mb-2">250+ Students</h3>
               <p className="text-muted-foreground">
                 Helped thousands of students find their perfect accommodation
               </p>

@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/constants';
+import emailjs from '@emailjs/browser';
+
 
 interface ContactFormData {
   name: string;
@@ -26,14 +28,50 @@ export default function Contact() {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log('Contact form submitted:', data);
-    toast({
-      title: 'Message Sent',
-      description: 'Thank you for contacting us. We will get back to you soon!',
-    });
-    form.reset();
-  };
+  // const onSubmit = (data: ContactFormData) => {
+  //   console.log('Contact form submitted:', data);
+  //   toast({
+  //     title: 'Message Sent',
+  //     description: 'Thank you for contacting us. We will get back to you soon!',
+  //   });
+  //   form.reset();
+  // };
+   const onSubmit = async (data :any) => {
+  try {
+
+    // OWNER KO ENQUIRY 
+    await emailjs.send(
+      "service_ffsai6p",
+      "template_6a2rhno",   
+      {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+      },
+      "w-HdT5B32CKd63FIG"
+    );
+
+    // 2️⃣ USER KO AUTO REPLY 
+    await emailjs.send(
+      "service_ffsai6p",
+      "template_gb20zc5",   
+      {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+      },
+      "w-HdT5B32CKd63FIG"
+    );
+
+    alert("Message sent successfully!");
+
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message");
+  }
+};
 
   return (
     <div className="container mx-auto px-4 py-16">

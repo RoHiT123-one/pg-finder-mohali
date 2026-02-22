@@ -1,10 +1,10 @@
 export const AREAS = [
   'Phase 5',
   'Phase 7',
-  'Kharar',
-  'Landran',
-  'Sector 70',
-  'Sector 71',
+  // 'Kharar',
+  // 'Landran',
+  // 'Sector 70',
+  // 'Sector 58',
 ] as const;
 
 export const GENDER_TYPES = ['Boys', 'Girls', 'Co-ed'] as const;
@@ -36,14 +36,14 @@ export const TESTIMONIALS = [
   },
   {
     name: 'Rahul Kumar',
-    location: 'Kharar',
-    rating: 5,
+    location: 'Mohali',
+    rating: 4,
     comment: 'Great service! Direct contact with owners made the process so smooth. Highly recommended for students.',
     image: 'testimonial-student-2.jpg',
   },
   {
     name: 'Anjali Singh',
-    location: 'Landran',
+    location: 'Mohali',
     rating: 5,
     comment: 'Best PG finder in Mohali. Detailed information and photos helped me make the right choice.',
     image: 'testimonial-student-3.jpg',
@@ -142,10 +142,10 @@ export const PRICING_PLANS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: '+91 98765 43210',
-  email: 'info@pgfindermohali.com',
+  phone: '+91 78767 21175',
+  email: 'pgfindermohali.com',
   address: 'Phase 7, Mohali, Punjab 160055',
-  whatsapp: '+91 98765 43210',
+  whatsapp: '+91 78767 21175',
 };
 
 export const SOCIAL_LINKS = {

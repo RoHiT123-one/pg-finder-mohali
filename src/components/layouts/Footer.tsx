@@ -6,16 +6,16 @@ export default function Footer() {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'All PGs', path: '/listings' },
-    { name: 'List Your PG', path: '/list-your-pg' },
+    // { name: 'List Your PG', path: '/list-your-pg' },
     { name: 'Pricing', path: '/pricing' },
   ];
 
   const areaLinks = [
     { name: 'PG in Phase 5', path: '/area/phase-5' },
     { name: 'PG in Phase 7', path: '/area/phase-7' },
-    { name: 'PG in Kharar', path: '/area/kharar' },
-    { name: 'PG in Landran', path: '/area/landran' },
-    { name: 'PG in Sector 70', path: '/area/sector-70' },
+    // { name: 'PG in Kharar', path: '/area/kharar' },
+    // { name: 'PG in Landran', path: '/area/landran' },
+    // { name: 'PG in Sector 70', path: '/area/sector-70' },
   ];
 
   const legalLinks = [
@@ -110,10 +110,10 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-primary mt-0.5" />
                 <a
-                  href={`tel:${CONTACT_INFO.phone}`}
+                  href={`tel:+917876721175`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {CONTACT_INFO.phone}
+                  +91 78767 21175
                 </a>
               </li>
               <li className="flex items-start space-x-3">

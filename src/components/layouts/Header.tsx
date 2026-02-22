@@ -8,7 +8,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'All PGs', path: '/listings' },
-    { name: 'List Your PG', path: '/list-your-pg' },
+    // { name: 'List Your PG', path: '/list-your-pg' },
     { name: 'Pricing', path: '/pricing' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
@@ -22,7 +22,8 @@ export default function Header() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg">
             PG
           </div>
-          <span className="hidden font-bold text-xl md:inline-block">
+          {/* hidden font-bold text-xl md:inline-block by default  */}
+          <span className="font-bold text-xl md:inline-block">
             PG Finder Mohali
           </span>
         </Link>
@@ -42,10 +43,10 @@ export default function Header() {
 
         {/* Contact Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <a href={`tel:${CONTACT_INFO.phone}`}>
+          <a href={`tel:+917876721175`}>
             <Button variant="outline" size="sm">
               <Phone className="mr-2 h-4 w-4" />
-              {CONTACT_INFO.phone}
+              +91 78767 21175
             </Button>
           </a>
         </div>

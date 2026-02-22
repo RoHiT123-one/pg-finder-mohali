@@ -1,4 +1,5 @@
 export interface PG {
+  image_urls: string[];
   id: string;
   name: string;
   area: string;

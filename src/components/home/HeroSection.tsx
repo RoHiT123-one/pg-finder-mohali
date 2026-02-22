@@ -17,15 +17,15 @@ export default function HeroSection() {
 
         <div className="mt-12 flex flex-wrap justify-center gap-6 text-center">
           <div className="flex flex-col items-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">500+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
             <div className="text-sm text-muted-foreground">PG Listings</div>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary">10+</div>
             <div className="text-sm text-muted-foreground">Locations</div>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary">10K+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary">250+</div>
             <div className="text-sm text-muted-foreground">Happy Students</div>
           </div>
         </div>

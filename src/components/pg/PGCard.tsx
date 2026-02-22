@@ -7,6 +7,7 @@ import type { PG } from '@/types';
 
 interface PGCardProps {
   pg: PG;
+  // image_urls: string[]
 }
 
 export default function PGCard({ pg }: PGCardProps) {
@@ -20,7 +21,7 @@ export default function PGCard({ pg }: PGCardProps) {
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative h-48 overflow-hidden">
         <img
-          src={thumbnailImage}
+          src={pg.image_urls?.[0] || "https://placehold.co/600x400?text=No+Image"}
           alt={pg.name}
           className="w-full h-full object-cover"
         />
