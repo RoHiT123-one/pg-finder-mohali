@@ -9,7 +9,7 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { name: 'All PGs', path: '/listings' },
     // { name: 'List Your PG', path: '/list-your-pg' },
-    { name: 'Pricing', path: '/pricing' },
+    // { name: 'Pricing', path: '/pricing' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
