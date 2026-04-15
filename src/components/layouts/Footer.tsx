@@ -13,9 +13,9 @@ export default function Footer() {
   const areaLinks = [
     { name: 'PG in Phase 5', path: '/area/phase-5' },
     { name: 'PG in Phase 7', path: '/area/phase-7' },
-    // { name: 'PG in Kharar', path: '/area/kharar' },
-    // { name: 'PG in Landran', path: '/area/landran' },
-    // { name: 'PG in Sector 70', path: '/area/sector-70' },
+    { name: 'PG in Kharar', path: '/area/kharar' },
+    { name: 'PG in Landran', path: '/area/landran' },
+    { name: 'PG in Sector 70', path: '/area/sector-70' },
   ];
 
   const legalLinks = [

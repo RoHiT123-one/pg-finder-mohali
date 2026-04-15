@@ -1,10 +1,10 @@
 export const AREAS = [
   'Phase 5',
   'Phase 7',
-  // 'Kharar',
-  // 'Landran',
-  // 'Sector 70',
-  // 'Sector 58',
+  'Kharar',
+  'Landran',
+  'Sector 70',
+  'Sector 58',
 ] as const;
 
 export const GENDER_TYPES = ['Boys', 'Girls', 'Co-ed'] as const;

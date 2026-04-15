@@ -24,7 +24,7 @@ export default function PopularLocations() {
         </div>
 
         {/* grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 by default for 6 locations*/}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {AREAS.map((area) => (
             <Link key={area} to={`/area/${areaMap[area]}`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer">
